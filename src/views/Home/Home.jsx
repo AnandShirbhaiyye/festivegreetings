@@ -1,6 +1,15 @@
+import { useSearchParams } from "react-router-dom"
+
 function Home() {
+    const [searchParams] = useSearchParams();
+
+    const to = searchParams.get("to");
+    const from = searchParams.get("from");
+
   return (
-    <div>Home</div>
+   <>
+     To {to} from {from}
+   </>
   )
 }
 
