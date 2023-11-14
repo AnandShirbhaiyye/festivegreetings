@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import './Home.css';
 import Img1 from './diwali-lamp.png';
 import Img2 from './candle.png';
+import { useState } from "react";
 
 const GREETINGS = [
    "सर्व मित्र परिवाराला …दीपावलीच्या धनदायी ,प्रकाशमय,चैतन्यदायी मंगलमय शुभेच्छा !!!दीपावलीच्या हार्दिक शुभेछा…" ,
@@ -14,10 +15,10 @@ const GREETINGS = [
 function Home() {
   const [searchParams] = useSearchParams();
 
-  const to = searchParams.get("to");
-  const from = searchParams.get("from");
-  const greetingNumber = searchParams.get("g") >=  GREETINGS.length ? 0 : searchParams.get("g") || 0 ;
-  const themeNumber = searchParams.get('t');
+  const [to, setTo] = useState(searchParams.get("to"));
+  const [from, setFrom] = useState(searchParams.get("from"));
+  const [greetingNumber, setGreetingNumber] = useState(searchParams.get("g") >=  GREETINGS.length ? 0 : searchParams.get("g") || 0 );
+  const [themeNumber, setThemeNumber] = useState( searchParams.get('t'));
 
   return (
     <>
@@ -30,7 +31,33 @@ function Home() {
         <span className="from-text">From Your Best Friend💝{from}</span> <br/><br/><br/>
         <img src={Img2} className="normal-lamp" alt="diwali-img" />
       </div>
-      <h1>{import.meta.env.VITE_BASE_URL}</h1>
+
+      <input type="text" placeholder="To" value={to} onChange={(e)=>{setTo(e.target.value)}}/>
+
+      <input type="text" placeholder="From" value={from} onChange={(e)=>{setFrom(e.target.value)}}/>
+
+      <select value={themeNumber} onChange={(e)=>{
+        setThemeNumber(e.target.value)
+      }}>
+        <option value="0">None</option>
+        <option value="1">Theme 1</option>
+        <option value="2">Theme 2</option>
+        <option value="3">Theme 3</option>
+        <option value="4">Theme 4</option>
+        <option value="5">Theme 5</option>
+      </select>
+
+      <select value={greetingNumber} onChange={(e)=>{
+        setGreetingNumber(e.target.value)
+      }}>
+        <option value="0">Greeting 1</option>
+        <option value="1">Greeting 2</option>
+        <option value="2">Greeting 3</option>
+        <option value="3">Greeting 4</option>
+        <option value="4">Greeting 5</option>
+      </select>
+
+      <p>{import.meta.env.VITE_BASE_URL}?to={to}&from={from}&g={greetingNumber}&t={themeNumber}</p>
     </div>
     </>
   );
