@@ -80,6 +80,10 @@
     background-color: #f0f0f5;
     padding: 10px;
 }
+.create-your-own{
+    text-align: center;
+    margin-top: 50px;
+}
 
 @media screen and (max-width: 768px) {
   .greeting-container {
@@ -91,4 +95,8 @@
   .input {
     width: 200px;
   }
+  .create-your-own{
+    text-align: center;
+    margin-top: 30px;
+}
 }

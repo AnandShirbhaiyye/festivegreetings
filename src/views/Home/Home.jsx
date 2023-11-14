@@ -40,6 +40,15 @@ function Home() {
           <img src={Img2} className="normal-lamp" alt="diwali-img" />
         </div>
 
+        <p className="create-your-own">
+         Do you want to create your own Diwali Greeting? Customize it here..👇
+        </p>
+
+        <p className="url">
+          {import.meta.env.VITE_BASE_URL}?to={to}&from={from}&g={greetingNumber}
+          &t={themeNumber}
+        </p>
+
         <div className="input-container">
           <input
             className="input"
@@ -90,11 +99,6 @@ function Home() {
             <option value="4">Greeting 5</option>
           </select>
         </div>
-
-        <p className="url">
-          {import.meta.env.VITE_BASE_URL}?to={to}&from={from}&g={greetingNumber}
-          &t={themeNumber}
-        </p>
       </div>
     </>
   );
