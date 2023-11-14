@@ -17,18 +17,20 @@ function Home() {
   const to = searchParams.get("to");
   const from = searchParams.get("from");
   const greetingNumber = searchParams.get("g") >=  GREETINGS.length ? 0 : searchParams.get("g") || 0 ;
+  const themeNumber = searchParams.get('t');
 
   return (
     <>
     <div>
-    <div className="greeting-container">
+    <div className={`greeting-container ${`theme-${themeNumber}`}`}>
       <img src={Img1} className="diwali-lamp left-lamp" alt="diwali-img" />
       <img src={Img1} className="diwali-lamp right-lamp" alt="diwali-img" /><br/><br/><br/>
         <span>Dear {to}🌸</span>
         <p>{GREETINGS[greetingNumber]}</p>
-        <span className="from-text">From Your Best Friend💝{from}</span><br/><br/><br/>
+        <span className="from-text">From Your Best Friend💝{from}</span> <br/><br/><br/>
         <img src={Img2} className="normal-lamp" alt="diwali-img" />
       </div>
+      <h1>{import.meta.env.VITE_BASE_URL}</h1>
     </div>
     </>
   );
