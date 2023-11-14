@@ -1,5 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import './Home.css';
+import Img1 from './diwali-lamp.png';
+import Img2 from './candle.png';
 
 const GREETINGS = [
    "सर्व मित्र परिवाराला …दीपावलीच्या धनदायी ,प्रकाशमय,चैतन्यदायी मंगलमय शुभेच्छा !!!दीपावलीच्या हार्दिक शुभेछा…" ,
@@ -18,11 +20,16 @@ function Home() {
 
   return (
     <>
-      <div className="greeting-container">
+    <div>
+    <div className="greeting-container">
+      <img src={Img1} className="diwali-lamp left-lamp" alt="diwali-img" />
+      <img src={Img1} className="diwali-lamp right-lamp" alt="diwali-img" /><br/><br/><br/>
         <span>Dear {to}🌸</span>
         <p>{GREETINGS[greetingNumber]}</p>
-        <span className="from-text">From Your Best Friend💝{from}</span>
+        <span className="from-text">From Your Best Friend💝{from}</span><br/><br/><br/>
+        <img src={Img2} className="normal-lamp" alt="diwali-img" />
       </div>
+    </div>
     </>
   );
 }
